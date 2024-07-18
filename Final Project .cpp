@@ -96,7 +96,15 @@ public:
 
 int main() {
     BST tree;
-    int values[] = {25, 15, 10, 22, 35, 30, 40};
+    int n;
+    cout<<"enter the number of elements :";
+    cin>>n;
+    cout<<"The printing array is:"<<endl;
+    int values[100];
+    for(int i = 0; i<n ;i++){
+    	cin>>values[i];
+	}
+    
     for (int i = 0; i < 7; ++i) {
         tree.root = tree.insert(tree.root, values[i]);
     }
@@ -113,10 +121,16 @@ int main() {
     tree.postOrder(tree.root);
     cout << endl;
 
-    cout << "Search for 22: " << (tree.search(tree.root, 22) ? "Found" : "Not Found") << endl;
+    int s;
+    cout<<"Enter the number to search : ";
+    cin>>s;
+    cout << "Search : " << (tree.search(tree.root, s) ? "Found" : "Not Found") << endl;
 
-    cout << "Delete 10\n";
-    tree.deleteNode(tree.root, 10);
+	int d;
+    cout<<"Enter the number to delete : ";
+    cin>>d;
+    cout << "Delete \n";
+    tree.deleteNode(tree.root, d);
     cout << "InOrder traversal after deletion: ";
     tree.inOrder(tree.root);
     cout << endl;
@@ -124,15 +138,22 @@ int main() {
     return 0;
 }
 
-Output-
-InOrder traversal: 10 15 22 25 30 35 40 
-PreOrder traversal: 25 15 10 22 35 30 40 
-PostOrder traversal: 10 22 15 30 40 35 25 
-Search for 22: Found
-Delete 10
-InOrder traversal after deletion: 15 22 25 30 35 40 
-
 ------Code Execution Successful-------
+ OUTPUT:- 
+enter the number of elements :7
+The printing array is:
+10 23 12 14 23 8 29
+InOrder traversal: 8 10 12 14 23 29
+PreOrder traversal: 10 8 23 12 14 29
+PostOrder traversal: 8 14 12 29 23 10
+Enter the number to search : 23
+Search : Found
+Enter the number to delete : 10
+Delete
+InOrder traversal after deletion: 8 12 14 23 29
+
+--------------------------------
+Process exited after 40.96 seconds with return value 0
 
 Project Document:
 
